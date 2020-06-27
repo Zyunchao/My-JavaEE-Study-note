@@ -38,9 +38,17 @@
 
 ### 远程仓库
 
-协同开发
+#### SSH 公钥
+
+- **cs ~/.ssh**：查看当前计算机是否生成了 ssh
+- **ssh-keygen -t rsa -C "18651805393@163.com"**：生成 ssh 公钥
+- **cat ~/.ssh/id_rsa.pub**：查看 ssh 公钥
 
 #### 关联远程仓库
 
 - **git remote add** 远程名称 远程仓库 URL
+
+  > **git remote -v**：查看远程仓库信息
+  > **git remote remove 远程名称**：移除远程仓库
+
 - **git push -u** 仓库名称 分支名
