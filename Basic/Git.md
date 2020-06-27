@@ -5,8 +5,11 @@
 - **git inti**：初始化本地仓库
 - **git status**：查看本地仓库状态
 - **git add**：将修改内容添加到暂存区
+
   > 后面跟文件名：添加指定文件到暂存区
+
   > **.** ：添加所有修改文件
+
 - **git commit**：将暂存区中的内容提交到本地仓库
 
   > **-m**：添加备注
@@ -26,18 +29,24 @@
 - **git branch**：分支操作
 
   > 跟分支名：创建版本库
+
   > 无参数：查看当前版本库的分支
-  > **git branch -d dev**：删除指定分支
 
-- **git checkout <name>**：切换分支
+  > **git branch -d `<branch name>`**：删除指定分支
 
-  > **git checkout -b <name>** ：创建+切换分支
+  > **git branch -a**：查看所有的分支（包括**远程仓库**的分支）
 
-- **git switch <name>**：切换分支
+* **git checkout `<branch name>`**：切换分支
 
-  > **git switch -c <name>**：创建+切换分支
+  > **git checkout -b `<branch name>`** ：创建+切换分支
+
+* **git switch `<branch name>`**：切换分支
+
+  > **git switch -c `<branch name>`**：创建+切换分支
 
 ### 远程仓库
+
+代码托管平台：**github、码云**
 
 #### SSH 公钥
 
@@ -59,3 +68,12 @@
 
 - **git clone 仓库地址**
 - **git pull 远程仓库 分支名**
+
+#### 删除远程分支
+
+- **git branch -r**：查看**远程**分支
+
+  > gie branch -a 是查看所有分支
+
+- **git branch -r -d origin/`<branch name>`**：删除本地存储的远程分支信息
+- **git push origin :`<branch name>`**：将删除的远程分支信息推送到远程仓库，删除远程仓库中存在的分支
