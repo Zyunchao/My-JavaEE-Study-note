@@ -32,8 +32,12 @@
 - **git checkout <name>**：切换分支
 
   > **git checkout -b <name>** ：创建+切换分支
+  > 
+
+测试 pull
 
 - **git switch <name>**：切换分支
+  
   > **git switch -c <name>**：创建+切换分支
 
 ### 远程仓库
