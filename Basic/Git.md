@@ -46,9 +46,10 @@
 
 #### 关联远程仓库
 
-- **git remote add** 远程名称 远程仓库 URL
+- **git remote add 远程名称 远程仓库 URL**
 
   > **git remote -v**：查看远程仓库信息
+  
   > **git remote remove 远程名称**：移除远程仓库
 
-- **git push -u** 仓库名称 分支名
+- **git push -u 仓库名称 分支名**
