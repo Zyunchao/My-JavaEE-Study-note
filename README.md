@@ -18,7 +18,7 @@
 
    > 进制介绍与转换规则
 
-5. [Git 版本控制](./Basic/Git.md)
+5. [Git 常用命令](./Basic/Git.md)
    > git 常用命令
 
 ## 面向对象
