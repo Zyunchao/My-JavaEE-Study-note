@@ -93,7 +93,7 @@ String s4 = "a" + "b" + "c";
 System.out.println(s1 == s4); // true
 ```
 
-## 方法
+## 常用方法
 
 - equals
   - 对比字符串内容是否相等
