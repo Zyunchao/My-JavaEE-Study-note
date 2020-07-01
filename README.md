@@ -27,8 +27,12 @@
 
    > 类和对象的概念、类的创建与使用、一个对象创建过程图、封装的概念、构造方法的概念
 
-2. [面向对象进阶](./Oop/面向对象进阶.md)
+2. [面向对象继承](./Oop/面向对象继承.md)
+
    > 继承、抽象类、代码块
+
+3. [面向对象多态](./Oop/面向对象多态.md)
+   >
 
 ## Api
 
@@ -38,6 +42,7 @@
 ## JavaSE 进阶
 
 1. [JavaSE 进阶](JavaSE%20Advance/Java进阶.md)
+
    > 包的概念、static 关键字
 
-2. [Java修饰符总结](/JavaSE%20Advance/Java修饰符总结.md)
+2. [Java 修饰符总结](/JavaSE%20Advance/Java修饰符总结.md)
