@@ -41,7 +41,7 @@
 
 ## JavaSE 进阶
 
-1. [JavaSE 进阶](JavaSE%20Advance/Java进阶.md)
+1. [JavaSE 进阶](JavaSE%20Advance/JavaSE进阶.md)
 
    > 包的概念、static 关键字
 
