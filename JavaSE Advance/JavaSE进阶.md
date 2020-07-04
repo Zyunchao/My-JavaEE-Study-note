@@ -30,8 +30,10 @@
   > 不需要导包
 
 - 不同包下的访问
+
   1. import 导包后访问
   2. 通过**全类名**(包名 + 类名) 访问
+
      > 使用场景：多个包下，出现了重名的类，可以使用这种方式进行区分
 
 > 类的导入就像 js 中模块的导入。
@@ -187,3 +189,274 @@ public class PersonTest {
 > **静态成员**无法访问实例成员，因为静态成员存在的时候实例成员**还不存在**
 >
 > **实例成员**可以访问静态成员，因为实例成员存在的时候静态成员**已经存在**了
+
+## 内部类
+
+在一个 class 内部可以继续定义类，在类中定义的类称之为 **“内部类”**
+
+Ps:
+
+> 相当于 Js 函数内声明函数
+
+内部类的访问特点：
+
+- 内部类可以直接访问外部类的成员，包括私有
+
+  > 作用域
+
+- 外部类要使用内部类的成员，必须创建对象
+
+```java
+/*
+* 1. 普通内部类的构建方式：
+*   外部类名.内部类名 变量名 = new 外部类().new 内部类();
+* */
+OuterWrapper.InnerClass inner = new OuterWrapper().new InnerClass();
+inner.show();
+
+// -------------------------------------------------------------------
+
+class OuterWrapper {
+    private String name = "外部类 - OuterWrapper";
+
+    // 在类的内部定义的类 = 内部类
+    class InnerClass {
+        private String name = "内部类 - InnerClass";
+
+        public void show() {
+            System.out.println("当前类属于：" + OuterWrapper.this.name);
+            System.out.println(name);
+            OuterWrapper.this.show();
+        }
+    }
+
+    public void show() {
+        System.out.println("外部类的 show 方法");
+    }
+}
+```
+
+### 内部类成员访问
+
+作用域规则
+
+**就近原则，遮蔽效应**
+
+如果要指定访问外部类的成员，使用
+
+> `外部类.this.成员`
+
+### 修饰成员内部类
+
+```java
+/*
+ * 2. 静态内部类、私有内部类
+ * 首先，内部类是在类的内部声明的
+ *   那么，内部声明的类就是属于 外部类的成员
+ * 既然是成员，那就可以使用修饰符进行修饰
+ *
+ * 使用 static 修饰的内部类也就是：静态内部类
+ * 使用 private 修饰的内部类也就是：私有内部类
+ *
+ * */
+
+class OuterWrapper2 {
+    private String name = "外部类：OuterWrapper2";
+    static String fun = "包裹内部类";
+
+    // 公开的内部类：public 修饰
+    public class PublicInner {
+        private String name = "公开内部类：PublicInner";
+
+        public void show() {
+            System.out.println(OuterWrapper2.this.name + " 的 " + this.name);
+        }
+    }
+
+    // 静态的内部类：static 修饰
+    static class StaticInner {
+        private String name = "静态内部类：StaticInner";
+        static String innerFun = "创建内部类";
+
+        public void show() {
+            /*
+             * 在静态内部类中，无法访问到 外部类的 this
+             * 静态内部类,随着外部类的加载而加载，那么外部类的this 在内部类中无法访问
+             * */
+            // System.out.println(OuterWrapper2.this.name + " 的 " + this.name);
+            System.out.println(this.name);
+        }
+
+        /*
+         * static 修饰的静态成员，都是属于类的
+         * 都可以使用 类名. 的方式进行访问
+         *
+         * 外部类.静态内部类.静态成员（变量/方法）
+         * */
+        static void showFun() {
+            /*
+             * 内部类的成员访问遵循作用域链的访问规则
+             * 就近原则，遮蔽效应
+             *
+             * 局部作用域 => 内部类成员 => 外部类成员 => 报错
+             * */
+            System.out.println("静态内部类 StaticInner 执行：");
+            System.out.println("外部类的作用：" + fun);
+            System.out.println("StaticInner 内部类的作用：" + innerFun);
+        }
+    }
+
+    // 私有的内部类：private 修饰
+    private class PrivateInner {
+        /*
+         *
+         * 类的私有成员
+         * private 修饰的成员将只能在本类中访问
+         *
+         * 内部类可以访问 外部类的私有成员，内部类还是属于外部类的内部的
+         * 可以正常访问
+         *
+         * */
+        private String name = "私有内部类：PrivateInner";
+
+        public void show() {
+            System.out.println(OuterWrapper2.this.name + " 的 " + this.name);
+        }
+    }
+
+    /*
+    * 私有内部类，是相对于外部类来说私有的
+    * 也就代表，私有内部类只能在当前外部类中（外部类的成员方法、其他非静态内部类）使用
+    *
+    * */
+    public void getPrivateInnerInstance() {
+        PrivateInner privateInner = new PrivateInner();
+        privateInner.show();
+    }
+}
+```
+
+### 局部内部类
+
+在**成员方法中定义**的内部类，只能在方法内使用，不能在方法外部使用
+
+> 各种内部类 == Js 函数的嵌套
+>
+> 成员访问遵循**作用域链**，就近原则，遮蔽效应
+
+访问权限遵循权限修饰符
+
+### 匿名内部类
+
+```java
+/*
+ *
+ * 匿名内部类
+ * 本质上是一个 局部内部类，在局部存活
+ *
+ * 匿名内部类的前提：需要存在一个接口或者类
+ *
+ * 产生原因：
+ *   当我们要使用一个接口内的方法时，必须要实现这个接口，并在实现类中对接口中的方法进行重写
+ *   我们可以使用 new 关键字对接口进行调用，new 关键字调用的时候，可以在调用后面跟上对接口内方法的重写
+ *   这样一来，new 调用完之后，就可以直接得到一个接口的实现类的实例了
+ *
+ *   new 关键字调用的部分，实际上是接口的实现类，但并没有名字，因此成为 “匿名内部类”
+ *
+ * 我们就省略掉了 创建实现类，构造实现类实例的步骤，简化了接口的使用
+ *   按需使用匿名类
+ * */
+
+public class LocalInnerClassDemo {
+    public static void main(String[] args) {
+        /*
+         * 匿名内部类
+         * 在 new 匿名内部类的时候，有返回值，可以使用 接口/父类 的类型（多态）进行接收
+         * */
+        Animal cat = new Animal() {
+            @Override
+            public void eat() {
+                System.out.println("猫吃鱼");
+            }
+
+            @Override
+            public void drink() {
+                System.out.println("猫喝奶");
+            }
+
+            @Override
+            public void run() {
+                System.out.println("猫灵活的跑");
+            }
+        };
+        cat.show();
+    }
+}
+
+interface Animal {
+    void eat();
+
+    void drink();
+
+    void run();
+
+    default void show() {
+        eat();
+        drink();
+        run();
+    }
+}
+```
+
+## Lambda 表达式
+
+在我们使用匿名内部类的情况下，如果匿名内部类的 接口中只有一个要重写的方法
+
+那么就可以使用 Lambda 表达式
+
+Lambda 表达式很局限：
+
+- 只能是接口（匿名内部类可以是接口，也可以是类）
+- 接口中有且只能有一个方法
+
+**Lambda 表达式的三要素**
+
+- ()：用来接收参数
+- ->：指向方法体（用箭头指向后面要做的事）
+- {}：方法体（包含一段代码）
+
+**Lambada 表达式的格式**
+
+> (形式参数) -> { 代码块 }
+
+```java
+
+interface Marriage {
+    void who();
+}
+
+interface MyMath {
+    int getSum(int a, int b);
+}
+
+// ----------------------------------
+
+public class LocalInnerClassDemo {
+    public static void main(String[] args) {
+        /*
+         * Lambda 表达式
+         * */
+        Marriage marriage = () -> {
+            System.out.println("刘一鸣");
+        };
+        marriage.who();
+
+        /*
+         * Lambda 简写 和 js 中的箭头函数简写规则一致
+         * */
+        MyMath myMath = (a, b) -> a + b;
+        int sum = myMath.getSum(10, 20);
+        System.out.println("sum = " + sum);
+    }
+}
+```

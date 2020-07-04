@@ -19,6 +19,7 @@
    > 进制介绍与转换规则
 
 5. [Git 常用命令](./Basic/Git常用命令.md)
+   
    > git 常用命令
 
 ## 面向对象
@@ -34,18 +35,17 @@
 3. [面向对象-多态](./Oop/3.面向对象-多态.md)
 
    > 接口、多态
-
-4. [面向对象-内部类](./oop/4.面向对象-内部类.md)
-
+   
 ## Api
 
 1. [Api](./Api/Api.md)
+   
    > String
 
 ## JavaSE 进阶
 
 1. [JavaSE 进阶](JavaSE%20Advance/JavaSE进阶.md)
 
-   > 包的概念、static 关键字
+   > 包的概念、static 关键字、内部类
 
-2. [Java 修饰符总结](/JavaSE%20Advance/Java修饰符总结.md)
+2. [Java 修饰符总结](./JavaSE%20Advance/Java修饰符总结.md)
