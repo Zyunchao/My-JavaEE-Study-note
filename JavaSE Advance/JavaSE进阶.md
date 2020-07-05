@@ -460,3 +460,32 @@ public class LocalInnerClassDemo {
     }
 }
 ```
+
+## 包装类
+
+将基本数据类型封装成对象的好处在于可以在对象中定义更多的功能方法操作该数据
+
+| 基本数据类型 |    包装类     |
+| :----------: | :-----------: |
+|   **byte**   |   **Byte**    |
+|  **short**   |   **Short**   |
+|   **int**    |  **Integer**  |
+|   **long**   |   **Long**    |
+|  **float**   |   **Float**   |
+|  **double**  |  **Double**   |
+|   **char**   | **Character** |
+| **boolean**  |  **Boolean**  |
+
+Ps:
+
+> Java 中的包装类 == JS 中的数据类型的构造函数（Numeber、String、Boolean...）
+
+### 自定装箱和自动拆箱
+
+**装箱**：把基本数据类型转换为对应的包装类类型
+
+> Integer i = 100;
+
+**拆箱**：把包装类类型转换为对应的基本数据类型
+
+> int i1 = Integer.valueof("10");

@@ -116,5 +116,5 @@ System.out.println(s1 == s4); // true
 # StringBuilder
 
 一个类，一个**序列化**数据的容器，可以将装载任何数据的容器
-得到一个 **StringBilder** 类型的字符串
+得到一个 **StringBuilder** 类型的字符串
 最终数据可以使用 **toString** 方法装换称 **String** 类型的字符串
