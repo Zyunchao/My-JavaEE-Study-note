@@ -71,10 +71,12 @@
   > List 集合的实现类(ArrayList、LinkedList)
 
 - [集合 2](./数据结构/集合02.md)
+  
   > 泛型、Set（TreeSet）集合、**数据结构（二叉树、二叉查找树、平衡二叉树）**
 - [集合 3](./数据结构/集合03.md)
 
-  > 数据结构（红黑树）、HashSet 集合、Map 集合、HashMap 集合、TreeMap 结合
+  > **数据结构（红黑树）**、HashSet 集合、Map 集合、HashMap 集合、TreeMap 结合
 
 - [集合 4](./数据结构/集合04.md)
+  
   >
