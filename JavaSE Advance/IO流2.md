@@ -587,6 +587,10 @@
 
 ### 3.3serialVersionUID&transient【应用】
 
+serialVersionUID 如果我们没有定义，那么虚拟机会根据类中的信息会**自动的计算出**一个序列号
+
+在每次修改类的时候，虚拟机会**重新计算**得出一个 serialVersionUID
+
 - serialVersionUID
 
   - 用对象序列化流序列化了一个对象后，假如我们修改了对象所属的类文件，读取数据会不会出问题呢？
