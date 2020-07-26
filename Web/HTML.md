@@ -1,4 +1,4 @@
-# JavaEE-v4.0-HTML-授课
+# JavaEE-v4.0-HTML
 
 # 1 HTML 入门
 

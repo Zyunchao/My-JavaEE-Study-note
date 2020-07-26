@@ -1,4 +1,4 @@
-# Request&Response-授课
+# Request&Response
 
 # 1 响应对象
 
@@ -737,9 +737,9 @@ private void test3(HttpServletRequest request, HttpServletResponse response)
 
 **总结：**
 
-​ 以上三个方法可以获取表单提交过来的请求参数。
+ 以上三个方法可以获取表单提交过来的请求参数。
 
-​ 参数的名称是一个字符串，参数的值可能是一个字符串，也可能是一个字符串数组。
+ 参数的名称是一个字符串，参数的值可能是一个字符串，也可能是一个字符串数组。
 
 #### 2）封装请求参数到实体类中
 

@@ -1,4 +1,4 @@
-# Servlet-授课
+# Servlet
 
 # 1 Servlet
 
@@ -70,15 +70,15 @@ Servlet 是 SUN 公司提供的一套规范，名称就叫 Servlet 规范，它�
 
 第一种：实现 Servlet 接口，接口中的方法必须全部实现。
 
-​ 使用此种方式，表示接口中的所有方法在需求方面都有重写的必要。此种方式支持最大程度的自定义。
+ 使用此种方式，表示接口中的所有方法在需求方面都有重写的必要。此种方式支持最大程度的自定义。
 
 第二种：继承 GenericServlet，service 方法必须重写，其他方可根据需求，选择性重写。
 
-​ 使用此种方式，表示只在接收和响应客户端请求这方面有重写的需求，而其他方法可根据实际需求选择性重写，使我们的开发 Servlet 变得简单。但是，此种方式是和 HTTP 协议无关的。
+ 使用此种方式，表示只在接收和响应客户端请求这方面有重写的需求，而其他方法可根据实际需求选择性重写，使我们的开发 Servlet 变得简单。但是，此种方式是和 HTTP 协议无关的。
 
 第三种：继承 HttpServlet，它是 javax.servlet.http 包下的一个抽象类，是 GenericServlet 的子类。<b><font color='red'>如果我们选择继承 HttpServlet 时，只需要重写 doGet 和 doPost 方法，不要覆盖 service 方法。</font></b>
 
-​ 使用此种方式，表示我们的请求和响应需要和 HTTP 协议相关。也就是说，我们是通过 HTTP 协议来访问的。那么每次请求和响应都符合 HTTP 协议的规范。请求的方式就是 HTTP 协议所支持的方式（目前我们只知道 GET 和 POST，而实际 HTTP 协议支持 7 种请求方式，GET POST PUT DELETE TRACE OPTIONS HEAD )。
+ 使用此种方式，表示我们的请求和响应需要和 HTTP 协议相关。也就是说，我们是通过 HTTP 协议来访问的。那么每次请求和响应都符合 HTTP 协议的规范。请求的方式就是 HTTP 协议所支持的方式（目前我们只知道 GET 和 POST，而实际 HTTP 协议支持 7 种请求方式，GET POST PUT DELETE TRACE OPTIONS HEAD )。
 
 #### 2）HttpServlet 的使用细节
 
@@ -98,7 +98,7 @@ Servlet 是 SUN 公司提供的一套规范，名称就叫 Servlet 规范，它�
 
 得出 HttpServlet 的使用结论：
 
-​ <b><font color='red'>我们继承了 HttpServlet，需要重写里面的 doGet 和 doPost 方法来接收 get 方式和 post 方式的请求。</font></b>
+ <b><font color='red'>我们继承了 HttpServlet，需要重写里面的 doGet 和 doPost 方法来接收 get 方式和 post 方式的请求。</font></b>
 
 为了实现代码的可重用性，我们只需要在 doGet 或者 doPost 方法中一个里面提供具体功能即可，而另外的那个方法只需要调用提供了功能的方法。
 
@@ -215,39 +215,39 @@ public class ServletDemo5 extends HttpServlet {
 
 **第一种：指名道姓的方式**
 
-​ 此种方式，只有和映射配置一模一样时，Servlet 才会接收和响应来自客户端的请求。
+ 此种方式，只有和映射配置一模一样时，Servlet 才会接收和响应来自客户端的请求。
 
-​ 例如：映射为：/servletDemo5
+ 例如：映射为：/servletDemo5
 
-​ 访问 URL：http://localhost:8585/servlet_demo/servletDemo5
+ 访问 URL：http://localhost:8585/servlet_demo/servletDemo5
 
 ![Servlet映射1](assets/Servlet映射1.png)
 
 **第二种：/开头+通配符的方式**
 
-​ 此种方式，只要符合目录结构即可，不用考虑结尾是什么。
+ 此种方式，只要符合目录结构即可，不用考虑结尾是什么。
 
-​ 例如：映射为：/servlet/\*
+ 例如：映射为：/servlet/\*
 
-​ 访问 URL：http://localhost:8585/servlet/itheima
+ 访问 URL：http://localhost:8585/servlet/itheima
 
-​ http://localhost:8585/servlet/itcast.do
+ http://localhost:8585/servlet/itcast.do
 
-​ 这两个 URL 都可以。因为用的\*，表示/servlet/后面的内容是什么都可以。
+ 这两个 URL 都可以。因为用的\*，表示/servlet/后面的内容是什么都可以。
 
 ![Servlet映射2](assets/Servlet映射2.png)
 
 **第三种：通配符+固定格式结尾**
 
-​ 此种方式，只要符合固定结尾格式即可，其前面的访问 URI 无须关心（注意协议，主机和端口必须正确）
+ 此种方式，只要符合固定结尾格式即可，其前面的访问 URI 无须关心（注意协议，主机和端口必须正确）
 
-​ 例如：映射为：\*.do
+ 例如：映射为：\*.do
 
-​ 访问 URL：http://localhost:8585/servlet/itcast.do
+ 访问 URL：http://localhost:8585/servlet/itcast.do
 
-​ http://localhost:8585/itheima.do
+ http://localhost:8585/itheima.do
 
-​ 这两个 URL 都可以方法。因为都是以.do 作为结尾，而前面用\*号通配符配置的映射，所有无须关心。
+ 这两个 URL 都可以方法。因为都是以.do 作为结尾，而前面用\*号通配符配置的映射，所有无须关心。
 
 ![Servlet映射3](assets/Servlet映射3.png)
 

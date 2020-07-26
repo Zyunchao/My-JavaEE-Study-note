@@ -1,4 +1,4 @@
-# Cookie&SessionJsp-授课
+# Cookie&SessionJsp
 
 # 1 会话技术
 
@@ -10,7 +10,7 @@
 
 举个例子：
 
-​ 例如，你在给家人打电话，这时突然有送快递的配送员敲门，你放下电话去开门，收完快递回来后，通话还在保持中，继续说话就行了。
+ 例如，你在给家人打电话，这时突然有送快递的配送员敲门，你放下电话去开门，收完快递回来后，通话还在保持中，继续说话就行了。
 
 ### 1.1.2 会话管理作用
 
@@ -26,11 +26,11 @@
 
 **客户端会话管理技术**
 
-​ 它是把要共享的数据保存到了客户端（也就是浏览器端）。每次请求时，把会话信息带到服务器，从而实现多次请求的数据共享。
+ 它是把要共享的数据保存到了客户端（也就是浏览器端）。每次请求时，把会话信息带到服务器，从而实现多次请求的数据共享。
 
 **服务端会话管理技术**
 
-​ 它本质仍是采用客户端会话管理技术，只不过保存到客户端的是一个特殊的标识，并且把要共享的数据保存到了服务端的内存对象中。每次请求时，把这个标识带到服务器端，然后使用这个标识，找到对应的内存空间，从而实现数据共享。
+ 它本质仍是采用客户端会话管理技术，只不过保存到客户端的是一个特殊的标识，并且把要共享的数据保存到了服务端的内存对象中。每次请求时，把这个标识带到服务器端，然后使用这个标识，找到对应的内存空间，从而实现数据共享。
 
 ## 1.2 客户端会话管理技术
 
@@ -291,11 +291,11 @@ Cookie 中的内容：
 **客户端什么时候带 cookie 到服务器，什么时候不带？**
 ​ 就是看请求资源 URI 和 cookie 的 path 比较。
 
-​ <font color='red'>请求资源 URI.startWith(cookie 的 path) </font> 如果返回的是 true 就带，如果返回的是 false 就不带。
+ <font color='red'>请求资源 URI.startWith(cookie 的 path) </font> 如果返回的是 true 就带，如果返回的是 false 就不带。
 
-​ 简单的说： 就是看谁的地址更精细
+ 简单的说： 就是看谁的地址更精细
 
-​ 比如：Cookie 的 path： /国家 /省份 /城市
+ 比如：Cookie 的 path： /国家 /省份 /城市
 
 请求资源 URI : /国家 /省份 不带
 请求资源 URI ： /国家 /省份 /城市 /区县 带
@@ -363,21 +363,21 @@ HttpSession，它虽然是服务端会话管理技术的对象，但它本质仍
 
 **什么是持久态**
 
-​ 把长时间不用，但还不到过期时间的 HttpSession 进行序列化，写到磁盘上。
+ 把长时间不用，但还不到过期时间的 HttpSession 进行序列化，写到磁盘上。
 
-​ 我们把 HttpSession 持久态也叫做钝化。（与钝化相反的，我们叫活化。）
+ 我们把 HttpSession 持久态也叫做钝化。（与钝化相反的，我们叫活化。）
 
 **什么时候使用持久化**
 
-​ 第一种情况：当访问量很大时，服务器会根据 getLastAccessTime 来进行排序，对长时间不用，但是还没到过期时间的 HttpSession 进行持久化。
+ 第一种情况：当访问量很大时，服务器会根据 getLastAccessTime 来进行排序，对长时间不用，但是还没到过期时间的 HttpSession 进行持久化。
 
-​ 第二种情况：当服务器进行重启的时候，为了保持客户 HttpSession 中的数据，也要对 HttpSession 进行持久化
+ 第二种情况：当服务器进行重启的时候，为了保持客户 HttpSession 中的数据，也要对 HttpSession 进行持久化
 
 **注意**
 
-​ HttpSession 的持久化由服务器来负责管理，我们不用关心。
+ HttpSession 的持久化由服务器来负责管理，我们不用关心。
 
-​ 只有实现了序列化接口的类才能被序列化，否则不行。
+ 只有实现了序列化接口的类才能被序列化，否则不行。
 
 # 2 页面技术
 
@@ -429,17 +429,17 @@ JSP 全称是 Java Server Page，它和 Servlet 一样，也是 sun 公司推出
 
 JSP 的原理：
 
-​ 客户端提交请求
+ 客户端提交请求
 
-​ ——Tomcat 服务器解析请求地址
+ ——Tomcat 服务器解析请求地址
 
-​ ——找到 JSP 页面
+ ——找到 JSP 页面
 
-​ ——Tomcat 将 JSP 页面翻译成 Servlet 的 java 文件
+ ——Tomcat 将 JSP 页面翻译成 Servlet 的 java 文件
 
-​ ——将翻译好的.java 文件编译成.class 文件
+ ——将翻译好的.java 文件编译成.class 文件
 
-​ ——返回到客户浏览器上。
+ ——返回到客户浏览器上。
 
 #### 1）执行过程分析图
 
@@ -528,9 +528,9 @@ jsp 在翻译完后是 out.print(表达式内容);
 
 需要注意的是：
 
-​ 在 Jsp 中可以使用 html 的注释，但是只能注释 html 元素，不能注释 java 程序片段和表达式。同时，被 html 注释部分会参与翻译，并且会在浏览器上显示
+ 在 Jsp 中可以使用 html 的注释，但是只能注释 html 元素，不能注释 java 程序片段和表达式。同时，被 html 注释部分会参与翻译，并且会在浏览器上显示
 
-​ jsp 的注释不仅可以注释 java 程序片段，也可以注释 html 元素，并且被 jsp 注释的部分不会参与翻译成.java 文件，也不会在浏览器上显示。
+ jsp 的注释不仅可以注释 java 程序片段，也可以注释 html 元素，并且被 jsp 注释的部分不会参与翻译成.java 文件，也不会在浏览器上显示。
 
 **示例：**
 
@@ -588,15 +588,15 @@ jsp 在翻译完后是 out.print(表达式内容);
 
 **import**：告知引擎，导入哪些包（类）。
 
-​ **注意：引擎会自动导入：java.lang.\*,javax.servlet.\*,javax.servlet.http.\*,javax.servlet.jsp.\***
+ **注意：引擎会自动导入：java.lang.\*,javax.servlet.\*,javax.servlet.http.\*,javax.servlet.jsp.\***
 
-​ **导入的形式：**
+ **导入的形式：**
 
-​ **<%@page import=”java.util.Date,java.util.UUID”%>或者：**
+ **<%@page import=”java.util.Date,java.util.UUID”%>或者：**
 
-​ **<%@page import=”java.util.Date”%>**
+ **<%@page import=”java.util.Date”%>**
 
-​ **<%@page import=”java.util.UUID”%>** **用 Eclipse：Alt+/ 自动导入**
+ **<%@page import=”java.util.UUID”%>** **用 Eclipse：Alt+/ 自动导入**
 
 **session**：告知引擎是否产生 HttpSession 对象，即是否在代码中调用 request.getSession()。默认是 true。
 
@@ -604,9 +604,9 @@ jsp 在翻译完后是 out.print(表达式内容);
 
 **errorPage**：告知引擎，当前页面出现异常后，应该转发到哪个页面上（路径写法：/代表当前应用）
 
-​ **小贴士：当在 errorpage 上使用了 isErrorPage=true 之后，ie8 有时候不能正常显示**
+ **小贴士：当在 errorpage 上使用了 isErrorPage=true 之后，ie8 有时候不能正常显示**
 
-​ **配置全局错误页面：web.xml**
+ **配置全局错误页面：web.xml**
 
 ```xml
 <error-page>
@@ -619,13 +619,13 @@ jsp 在翻译完后是 out.print(表达式内容);
 </error-page>
 ```
 
-​ **当使用了全局错误页面，就无须再写 errorPage 来实现转到错误页面，而是由服务器负责跳转到错误页面。**
+ **当使用了全局错误页面，就无须再写 errorPage 来实现转到错误页面，而是由服务器负责跳转到错误页面。**
 
 **isErrorPage**：告知引擎，是否抓住异常。如果该属性为 true，页面中就可以使用 exception 对象，打印异常的详细信息。默认值是 false。
 
 **contentType**：告知引擎，响应正文的 MIME 类型。contentType="text/html;charset=UTF-8"
 
-​ 相当于 response.setContentType("text/html;charset=UTF-8");
+ 相当于 response.setContentType("text/html;charset=UTF-8");
 
 **pageEncoding**：告知引擎，翻译 jsp 时（从磁盘上读取 jsp 文件）所用的码表。pageEncoding="UTF-8"相当于告知引擎用 UTF-8 读取 JSP
 
@@ -653,9 +653,9 @@ jsp 在翻译完后是 out.print(表达式内容);
 
 属性：
 
-​ uri：外部标签的 URI 地址。
+ uri：外部标签的 URI 地址。
 
-​ prefix：使用标签时的前缀。
+ prefix：使用标签时的前缀。
 
 ### 2.2.3 JSP 细节
 
