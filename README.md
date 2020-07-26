@@ -125,9 +125,9 @@
 
 - [Linux1](操作系统/Linux1.md)
 
-  >
+  > Linux 发展、系统与设置命令、系统管理、目录管理
 
 - [Linux2](操作系统/Linux2.md)
-  >
+  > 文件管理、备份压缩、网络与磁盘管理、shell
 
 ## JavaWeb
