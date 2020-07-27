@@ -142,6 +142,14 @@
 
   > 文件管理、备份压缩、网络与磁盘管理、shell
 
+## Web
+
+### 基础
+
+- [HTML](Web/HTML.md)
+
+- [CSS + Nginx](Web/Css+Nginx.md)
+
 ## JavaWeb 企业服务器开发基础
 
 - [Tomcat & Http](JavaWeb/Tomcat&Http协议.md)
@@ -163,14 +171,6 @@
 - [EL 表达式和 JSTL](JavaWeb/EL&Filter&Listener.md)
 
   > EL 表达式概述、Filter、Listener
-
-## Web
-
-### 基础
-
-- [HTML](Web/HTML.md)
-
-- [CSS + Nginx](Web/Css+Nginx.md)
 
 ## 数据库
 
